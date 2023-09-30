@@ -5,12 +5,13 @@ const pingResultSchema = new mongoose.Schema({
   errorMsg: { type: String, default: "" },
 });
 
-const monitorSchema = new mongoose.Schema({
+const pingSchema = new mongoose.Schema({
   timeStamp: Number,
+  clientName: String,
   Google: pingResultSchema,
   OpenDNS: pingResultSchema,
   Cloudflare: pingResultSchema,
   Quad9: pingResultSchema,
 });
 
-module.exports = mongoose.model("Monitor", monitorSchema);
+module.exports = mongoose.model("Ping", pingSchema);

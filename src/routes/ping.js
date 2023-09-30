@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Monitor = require("../models/monitor");
+const Ping = require("../models/ping");
 
 const GOOGLE = {
   serverName: "Google",
@@ -25,17 +25,18 @@ router.post("/", async (req, res) => {
     const openDns = req.body?.[OPEN_DNS.serverName] || {};
     const cloudflare = req.body?.[CLOUDFLARE.serverName] || {};
     const quad9 = req.body?.[QUAD9.serverName] || {};
-    const { timeStamp } = req.body;
+    const { timeStamp, clientName } = req.body;
 
-    const monitor = new Monitor({
+    const ping = new Ping({
       timeStamp,
+      clientName,
       [GOOGLE.serverName]: google,
       [OPEN_DNS.serverName]: openDns,
       [CLOUDFLARE.serverName]: cloudflare,
       [QUAD9.serverName]: quad9,
     });
-    await monitor.save();
-    res.status(200).json(monitor);
+    await ping.save();
+    res.status(200).json(ping);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error });
@@ -45,8 +46,8 @@ router.post("/", async (req, res) => {
 // Retrieve all todos
 router.get("/", async (req, res) => {
   try {
-    const monitor = await Monitor.find();
-    res.status(200).json(monitor);
+    const ping = await Ping.find();
+    res.status(200).json(ping);
   } catch (error) {
     console.log(error);
     res.status(500).json({ error });
