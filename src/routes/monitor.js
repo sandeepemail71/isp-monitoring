@@ -37,7 +37,8 @@ router.post("/", async (req, res) => {
     await monitor.save();
     res.status(200).json(monitor);
   } catch (error) {
-    res.status(500).json({ error: "Could not create monitor entry" });
+    console.log(error);
+    res.status(500).json({ error });
   }
 });
 
@@ -47,7 +48,8 @@ router.get("/", async (req, res) => {
     const monitor = await Monitor.find();
     res.status(200).json(monitor);
   } catch (error) {
-    res.status(500).json({ error: "Could not fetch monitors" });
+    console.log(error);
+    res.status(500).json({ error });
   }
 });
 
