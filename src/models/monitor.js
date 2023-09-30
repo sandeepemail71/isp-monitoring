@@ -6,7 +6,7 @@ const pingResultSchema = new mongoose.Schema({
 });
 
 const monitorSchema = new mongoose.Schema({
-  timeStamp: String,
+  timeStamp: Number,
   Google: pingResultSchema,
   OpenDNS: pingResultSchema,
   Cloudflare: pingResultSchema,
