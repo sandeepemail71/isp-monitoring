@@ -24,7 +24,6 @@ router.post("/", async (req, res) => {
     const google = req.body?.[GOOGLE.serverName] || {};
     const openDns = req.body?.[OPEN_DNS.serverName] || {};
     const cloudflare = req.body?.[CLOUDFLARE.serverName] || {};
-    const quad9 = req.body?.[QUAD9.serverName] || {};
     const { timeStamp, clientName } = req.body;
 
     const ping = new Ping({
@@ -33,7 +32,6 @@ router.post("/", async (req, res) => {
       [GOOGLE.serverName]: google,
       [OPEN_DNS.serverName]: openDns,
       [CLOUDFLARE.serverName]: cloudflare,
-      [QUAD9.serverName]: quad9,
     });
     await ping.save();
     res.status(200).json(ping);

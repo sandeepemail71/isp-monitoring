@@ -16,12 +16,8 @@ const CLOUDFLARE = {
   serverName: "Cloudflare",
   server: "1.1.1.1",
 };
-const QUAD9 = {
-  serverName: "Quad9",
-  server: "9.9.9.9",
-};
 
-const dnsServers = [GOOGLE, OPEN_DNS, CLOUDFLARE, QUAD9];
+const dnsServers = [GOOGLE, OPEN_DNS, CLOUDFLARE];
 
 // Ping all DNS servers in parallel
 async function pingAllDnsServers() {
@@ -52,7 +48,7 @@ async function pingAllDnsServers() {
     .then((response) => {
       // Handle the response data here
       console.log("Response Data:");
-        console.log(response.data);
+      console.log(response.data);
     })
     .catch((error) => {
       // Handle any errors that occurred during the request

@@ -11,7 +11,6 @@ const pingSchema = new mongoose.Schema({
   Google: pingResultSchema,
   OpenDNS: pingResultSchema,
   Cloudflare: pingResultSchema,
-  Quad9: pingResultSchema,
 });
 
 module.exports = mongoose.model("Ping", pingSchema);
