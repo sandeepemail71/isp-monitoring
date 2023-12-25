@@ -1,7 +1,7 @@
 const ping = require("ping");
 const axios = require("axios");
 
-const apiUrl = "https://isp-monitoring-48ee36e4594e.herokuapp.com/monitor";
+const apiUrl = "http://localhost:3000/ping";
 // const apiUrl = "http://localhost:3000/monitor";
 // Define an array of DNS server hostnames or IP addresses to ping
 const GOOGLE = {

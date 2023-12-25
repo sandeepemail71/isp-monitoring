@@ -1,9 +1,9 @@
 const axios = require("axios");
 const { exec } = require("child_process");
 
-const apiUrl = "https://isp-monitoring-48ee36e4594e.herokuapp.com/speedtest";
+const apiUrl = "http://localhost:3000/speedtest";
 
-const commandToRun = "speedtest-cli --json";
+const commandToRun = "speedtest-cli --secure --json";
 
 exec(commandToRun, (error, stdout, stderr) => {
   if (error) {
