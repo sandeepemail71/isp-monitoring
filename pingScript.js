@@ -8,6 +8,7 @@ const GOOGLE = {
   serverName: "Google",
   server: "8.8.8.8",
 };
+
 const OPEN_DNS = {
   serverName: "OpenDNS",
   server: "8.8.4.4",
